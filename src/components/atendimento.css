@@ -1,0 +1,228 @@
+.atendimento {
+  padding-block: var(--sec-y);
+}
+
+.atendimento__grade {
+  display: grid;
+  grid-template-columns: minmax(0, 6fr) minmax(0, 6fr);
+  gap: clamp(40px, 6vw, 112px);
+  align-items: start;
+}
+
+.atendimento__info {
+  display: grid;
+  gap: 24px;
+}
+
+.atendimento__blocos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+  margin-top: 16px;
+  padding-top: 32px;
+  border-top: 1px solid var(--c-linha-forte);
+}
+
+.atendimento__bloco h3 {
+  margin-bottom: 14px;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--c-bronze-texto);
+}
+
+.atendimento__subtitulo {
+  margin-top: 26px;
+}
+
+.atendimento__area + .atendimento__area {
+  margin-top: 16px;
+}
+
+.atendimento__area-nome {
+  font-family: var(--f-display);
+  font-size: 1.35rem;
+  line-height: 1.2;
+}
+
+.atendimento__area ul {
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  gap: 2px 22px;
+  margin: 6px 0 0;
+  font-size: 0.875rem;
+  color: var(--c-suave);
+}
+
+.atendimento__area li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.atendimento__area li::before {
+  content: '';
+  width: 4px;
+  height: 4px;
+  background: var(--c-bronze);
+  transform: rotate(45deg);
+}
+
+.atendimento address {
+  font-style: normal;
+  font-family: var(--f-display);
+  font-size: 1.35rem;
+  line-height: 1.35;
+}
+
+.atendimento__horarios div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 6px 0;
+  border-bottom: 1px dashed var(--c-linha-forte);
+  font-size: 0.875rem;
+}
+
+.atendimento__horarios dt {
+  color: var(--c-suave);
+}
+
+.atendimento__nota {
+  margin-top: 14px;
+  font-size: 0.8125rem;
+  color: var(--c-suave);
+}
+
+.atendimento__demo {
+  margin-top: 8px;
+}
+
+/* ---------- Mapa ---------- */
+.atendimento__mapa {
+  position: relative;
+  display: grid;
+  gap: 16px;
+  justify-items: start;
+}
+
+.atendimento__mapa iframe,
+.mapa__fachada {
+  width: 100%;
+  aspect-ratio: 4 / 4.4;
+  border: 0;
+  background: var(--c-linho);
+}
+
+.mapa__fachada {
+  position: relative;
+  overflow: hidden;
+}
+
+.mapa__ilustracao {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  fill: none;
+}
+
+.mapa__ruas {
+  stroke: rgba(34, 28, 23, 0.1);
+  stroke-width: 1;
+}
+
+.mapa__avenida {
+  stroke: rgba(34, 28, 23, 0.32);
+  stroke-width: 3;
+}
+
+.mapa__rio {
+  stroke: rgba(156, 122, 82, 0.45);
+  stroke-width: 9;
+  stroke-linecap: round;
+}
+
+.mapa__pino circle:last-child {
+  fill: var(--c-tinta);
+}
+
+.mapa__onda {
+  fill: rgba(156, 122, 82, 0.18);
+  stroke: var(--c-bronze);
+  stroke-width: 1;
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: mapa-onda 3s var(--ease) infinite;
+}
+
+@keyframes mapa-onda {
+  0% { transform: scale(0.3); opacity: 1; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+
+.mapa__cartao {
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  bottom: 24px;
+  display: grid;
+  gap: 14px;
+  justify-items: start;
+  padding: 22px 24px;
+  background: var(--c-papel);
+}
+
+.mapa__cartao-rotulo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--f-display);
+  font-size: 1.3rem;
+  line-height: 1.2;
+}
+
+.mapa__cartao-rotulo svg {
+  width: 20px;
+  height: 20px;
+  color: var(--c-bronze);
+}
+
+.mapa__cartao small {
+  font-size: 0.75rem;
+  color: var(--c-suave);
+}
+
+@media (max-width: 960px) {
+  .atendimento__grade {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .atendimento__mapa iframe,
+  .mapa__fachada {
+    aspect-ratio: 4 / 3.6;
+  }
+}
+
+@media (max-width: 560px) {
+  .atendimento__blocos {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .atendimento__mapa iframe,
+  .mapa__fachada {
+    aspect-ratio: 4 / 5;
+  }
+
+  .mapa__cartao {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    padding: 18px;
+  }
+
+  .mapa__cartao .btn {
+    width: 100%;
+  }
+}

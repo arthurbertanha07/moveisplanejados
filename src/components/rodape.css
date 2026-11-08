@@ -1,0 +1,137 @@
+.rodape {
+  padding-top: clamp(72px, 9vw, 128px);
+  padding-bottom: 32px;
+  background: var(--c-preto);
+  overflow: hidden;
+}
+
+.rodape__grade {
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) repeat(3, minmax(0, 2.4fr));
+  gap: clamp(32px, 4vw, 64px);
+}
+
+.rodape__marca {
+  display: grid;
+  gap: 22px;
+  justify-items: start;
+  align-content: start;
+}
+
+.rodape__marca p {
+  max-width: 22rem;
+  font-size: 0.9375rem;
+  color: var(--c-claro-suave);
+}
+
+.rodape__coluna h2 {
+  margin-bottom: 18px;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--c-bronze-claro);
+}
+
+.rodape__coluna ul {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--c-claro-suave);
+}
+
+.rodape__coluna a {
+  overflow-wrap: anywhere;
+  transition: color 0.3s;
+}
+
+.rodape__coluna a:hover {
+  color: var(--c-papel);
+}
+
+.rodape__rede {
+  text-transform: capitalize;
+}
+
+.rodape__assinatura {
+  margin: clamp(56px, 8vw, 112px) 0 0;
+  font-family: var(--f-display);
+  font-weight: 300;
+  font-size: clamp(5rem, 21vw, 19rem);
+  line-height: 0.78;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-align: center;
+  color: #1f1915;
+  user-select: none;
+  pointer-events: none;
+}
+
+.rodape__base {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px 32px;
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid var(--c-linha-clara);
+  font-size: 0.8125rem;
+  color: var(--c-claro-suave);
+}
+
+.rodape__demo {
+  max-width: 34rem;
+}
+
+.rodape__creditos summary {
+  cursor: pointer;
+  list-style: none;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.rodape__creditos summary::-webkit-details-marker {
+  display: none;
+}
+
+.rodape__creditos[open] {
+  flex-basis: 100%;
+}
+
+.rodape__creditos[open] summary {
+  margin-bottom: 12px;
+}
+
+.rodape__creditos ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 18px;
+  margin: 10px 0;
+}
+
+.rodape__creditos a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 960px) {
+  .rodape__grade {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .rodape__marca {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 560px) {
+  .rodape__grade {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .rodape__base {
+    flex-direction: column;
+  }
+}
