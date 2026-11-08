@@ -1,0 +1,258 @@
+.contato {
+  padding-block: var(--sec-y);
+}
+
+.contato__grade {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: clamp(40px, 6vw, 112px);
+  align-items: start;
+}
+
+.contato__principal {
+  display: grid;
+  gap: 26px;
+}
+
+.contato__titulo {
+  font-family: var(--f-display);
+  font-weight: 300;
+  font-size: clamp(2.5rem, 1.5rem + 3.8vw, 5.3rem);
+  line-height: 1;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+.contato__titulo em {
+  font-style: italic;
+  color: #ead9c1;
+}
+
+/* ---------- Compositor de mensagem ---------- */
+.compositor {
+  display: grid;
+  gap: 24px;
+  margin-top: 12px;
+  padding: clamp(22px, 3vw, 34px);
+  border: 1px solid var(--c-linha-clara);
+  background: rgba(243, 238, 230, 0.03);
+}
+
+.compositor fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-inline-size: 0;
+}
+
+.compositor legend,
+.compositor__campo > span,
+.compositor__previa > span {
+  margin-bottom: 12px;
+  padding: 0;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--c-bronze-claro);
+}
+
+.compositor legend span,
+.compositor small {
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: none;
+  color: var(--c-claro-suave);
+}
+
+.compositor__opcoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.compositor__opcao {
+  cursor: pointer;
+}
+
+.compositor__opcao span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 8px 14px;
+  border: 1px solid var(--c-linha-clara);
+  font-size: 0.8125rem;
+  transition: border-color 0.3s, background-color 0.3s, color 0.3s;
+}
+
+.compositor__opcao span::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border: 1px solid currentColor;
+  transform: rotate(45deg);
+  transition: background-color 0.3s;
+}
+
+.compositor__opcao:hover span {
+  border-color: var(--c-bronze-claro);
+}
+
+.compositor__opcao input:checked + span {
+  border-color: var(--c-bronze-claro);
+  background: rgba(196, 163, 124, 0.14);
+}
+
+.compositor__opcao input:checked + span::before {
+  background: var(--c-bronze-claro);
+  border-color: var(--c-bronze-claro);
+}
+
+.compositor__opcao input:focus-visible + span {
+  outline: 2px solid var(--c-bronze-claro);
+  outline-offset: 2px;
+}
+
+.compositor__campos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.compositor__campo {
+  display: grid;
+}
+
+.compositor__campo > span {
+  margin-bottom: 8px;
+}
+
+.compositor__campo input {
+  height: 48px;
+  padding: 0 2px;
+  border: 0;
+  border-bottom: 1px solid var(--c-linha-clara);
+  border-radius: 0;
+  background: transparent;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.compositor__campo input:focus {
+  outline: none;
+  border-bottom-color: var(--c-bronze-claro);
+}
+
+.compositor__campo input:focus-visible {
+  outline: none;
+  box-shadow: 0 2px 0 0 var(--c-bronze-claro);
+}
+
+.compositor__previa {
+  display: grid;
+}
+
+.compositor__previa p {
+  font-family: var(--f-display);
+  font-style: italic;
+  font-size: 1.2rem;
+  line-height: 1.4;
+  color: var(--c-claro-suave);
+}
+
+.contato__whatsapp {
+  justify-self: start;
+  min-height: 60px;
+  padding-inline: 32px;
+}
+
+.contato__whatsapp .icone {
+  width: 22px;
+  height: 22px;
+}
+
+/* ---------- Canais ---------- */
+.contato__canais {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 32px;
+  margin: 8px 0 0;
+}
+
+.contato__canais li {
+  display: flex;
+  gap: 14px;
+  padding: 18px 0;
+  border-top: 1px solid var(--c-linha-clara);
+}
+
+.contato__canais svg {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  margin-top: 3px;
+  color: var(--c-bronze-claro);
+}
+
+.contato__canais div {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.contato__canais span {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--c-claro-suave);
+}
+
+.contato__canais a {
+  font-size: 1rem;
+  overflow-wrap: anywhere;
+  transition: color 0.3s;
+}
+
+.contato__canais a:hover {
+  color: var(--c-bronze-claro);
+}
+
+.contato__foto {
+  position: sticky;
+  top: calc(var(--header-h) + 32px);
+  aspect-ratio: 2 / 3;
+}
+
+@media (max-width: 960px) {
+  .contato__grade {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .contato__foto {
+    position: relative;
+    top: auto;
+    order: -1;
+    aspect-ratio: 16 / 10;
+    margin-inline: calc(-1 * var(--gutter));
+  }
+}
+
+@media (max-width: 600px) {
+  .compositor {
+    margin-inline: calc(-1 * var(--gutter) + 8px);
+    padding: 22px 18px;
+  }
+
+  .compositor__campos,
+  .contato__canais {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .contato__whatsapp {
+    width: 100%;
+    white-space: normal;
+    text-align: center;
+  }
+}

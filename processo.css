@@ -1,0 +1,177 @@
+.processo {
+  padding-block: var(--sec-y);
+  background: #e4d9c6;
+}
+
+.processo__topo {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: clamp(16px, 2vw, 32px);
+  row-gap: 24px;
+  margin-bottom: clamp(56px, 7vw, 104px);
+}
+
+.processo__topo .rotulo { grid-column: 1 / -1; }
+.processo__topo .titulo-secao { grid-column: 1 / span 6; }
+.processo__topo .texto-intro { grid-column: 9 / -1; align-self: end; }
+
+.linha-tempo {
+  --marco-y: 92px;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: clamp(16px, 2.2vw, 36px);
+  margin: 0;
+  /* a própria lista não sobe; só a linha e as etapas animam */
+  transform: none !important;
+}
+
+/* Linha contínua que se desenha ao entrar na tela */
+.linha-tempo::before {
+  content: '';
+  position: absolute;
+  top: var(--marco-y);
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--c-linha-forte);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 2s var(--ease);
+}
+
+.linha-tempo.is-visivel::before {
+  transform: scaleX(1);
+}
+
+.etapa {
+  position: relative;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.9s var(--ease), transform 1s var(--ease);
+  transition-delay: calc(var(--i) * 160ms + 200ms);
+}
+
+.linha-tempo.is-visivel .etapa {
+  opacity: 1;
+  transform: none;
+}
+
+.etapa__num {
+  display: block;
+  height: calc(var(--marco-y) - 18px);
+  font-family: var(--f-display);
+  font-size: clamp(3rem, 2.2rem + 2.2vw, 4.4rem);
+  font-weight: 300;
+  line-height: 1;
+  color: var(--c-tinta);
+}
+
+.etapa__marco {
+  position: absolute;
+  top: calc(var(--marco-y) - 5px);
+  left: 0;
+  width: 11px;
+  height: 11px;
+  border: 1px solid var(--c-bronze);
+  background: #e4d9c6;
+  transform: rotate(45deg);
+  transition: background-color 0.6s var(--ease);
+  transition-delay: calc(var(--i) * 160ms + 600ms);
+}
+
+.linha-tempo.is-visivel .etapa__marco {
+  background: var(--c-bronze);
+}
+
+.etapa__titulo {
+  margin-top: 40px;
+  font-family: var(--f-display);
+  font-size: clamp(1.3rem, 1.1rem + 0.5vw, 1.6rem);
+  font-weight: 400;
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+.etapa__texto {
+  margin-top: 12px;
+  font-size: 0.9375rem;
+  color: var(--c-suave);
+}
+
+@media (max-width: 1080px) {
+  .processo__topo .titulo-secao,
+  .processo__topo .texto-intro {
+    grid-column: 1 / -1;
+  }
+
+  .linha-tempo {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+    padding-left: 44px;
+  }
+
+  .linha-tempo::before {
+    top: 6px;
+    bottom: 6px;
+    left: 5px;
+    right: auto;
+    width: 1px;
+    height: auto;
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+
+  .linha-tempo.is-visivel::before {
+    transform: scaleY(1);
+  }
+
+  .etapa {
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    column-gap: 16px;
+    padding-bottom: 40px;
+  }
+
+  .etapa:last-child {
+    padding-bottom: 0;
+  }
+
+  .etapa__num {
+    height: auto;
+    grid-row: span 2;
+    font-size: 2.8rem;
+  }
+
+  .etapa__marco {
+    top: 14px;
+    left: -44px;
+  }
+
+  .etapa__titulo {
+    margin-top: 4px;
+  }
+
+  .etapa__texto {
+    max-width: 34rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .etapa {
+    grid-template-columns: 1fr;
+  }
+
+  .etapa__num {
+    grid-row: auto;
+    font-size: 2.2rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .etapa,
+  .linha-tempo::before {
+    opacity: 1;
+    transform: none;
+  }
+}

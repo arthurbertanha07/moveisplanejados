@@ -1,0 +1,2 @@
+# Endereço público do site (usado em canonical e Open Graph). Altere após publicar.
+VITE_SITE_URL=https://lumen-moveis.vercel.app

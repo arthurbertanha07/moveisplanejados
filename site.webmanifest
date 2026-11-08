@@ -1,0 +1,13 @@
+{
+  "name": "Lumen Móveis Planejados",
+  "short_name": "Lumen",
+  "lang": "pt-BR",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#f3eee6",
+  "theme_color": "#1b1714",
+  "icons": [
+    { "src": "/icone-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icone-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
